@@ -40,6 +40,7 @@ public class ConsoleHangman
 			input1 = scan.next();
 			hangman1.tryThis(input1.charAt(0));
 			System.out.println();
+
 			System.out.print("Try new letter for second game: ");
 			input2 = scan.next();
 			hangman2.tryThis(input2.charAt(0));
