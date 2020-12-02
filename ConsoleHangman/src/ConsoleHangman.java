@@ -33,6 +33,7 @@ public class ConsoleHangman
 		hangmanView1.updateView(hangman1);
 		hangmanView2.updateView(hangman2);
 
+
 		System.out.println();
 		while(!hangman1.isGameOver())
 		{
