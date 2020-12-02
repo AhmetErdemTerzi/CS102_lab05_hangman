@@ -24,28 +24,22 @@ public class ConsoleHangman
 		hangman2 = new HangmanModel( new BasicSetup());
 
 		hangmanView1 = new ConsoleHangmanView();
-		hangmanView2 = new ConsoleHangmanView();
 
 		hangman1.addView(hangmanView1);
-		hangman2.addView(hangmanView2);
+		hangman1.addView(hangmanView2);
 
-		String input1, input2;
+		String input1;
 		hangmanView1.updateView(hangman1);
-		hangmanView2.updateView(hangman2);
 
 
 		System.out.println();
-		while(!hangman1.isGameOver())
+		while(!hangman1.isGameOver() || !hangman2.isGameOver())
 		{
-			System.out.print("Try new letter for first game: ");
+			System.out.print("Try new letter: ");
 			input1 = scan.next();
 			hangman1.tryThis(input1.charAt(0));
 			System.out.println();
 
-			System.out.print("Try new letter for second game: ");
-			input2 = scan.next();
-			hangman2.tryThis(input2.charAt(0));
-			System.out.println();
 		}
 
 		if(!hangman1.hasLost())
