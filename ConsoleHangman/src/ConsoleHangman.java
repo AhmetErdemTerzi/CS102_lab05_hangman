@@ -16,14 +16,14 @@ public class ConsoleHangman
     	System.out.println( "Start of ConsoleHangman\n");
 
 		// VARIABLES
-		HangmanModel		hangman1, hangman2;
+		HangmanModel		hangman1;
 		ConsoleHangmanView		hangmanView1,hangmanView2;
 
 		// PROGRAM CODE
 		hangman1 = new HangmanModel( new BasicSetup() );
-		hangman2 = new HangmanModel( new BasicSetup());
 
 		hangmanView1 = new ConsoleHangmanView();
+		hangmanView2 = new ConsoleHangmanView();
 
 		hangman1.addView(hangmanView1);
 		hangman1.addView(hangmanView2);
@@ -33,7 +33,7 @@ public class ConsoleHangman
 
 
 		System.out.println();
-		while(!hangman1.isGameOver() || !hangman2.isGameOver())
+		while(!hangman1.isGameOver())
 		{
 			System.out.print("Try new letter: ");
 			input1 = scan.next();
