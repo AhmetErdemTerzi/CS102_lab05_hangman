@@ -7,5 +7,5 @@ import cs102.Hangman;
  */
 public interface IHangmanView
 {
-	public void updateView( Hangman hangmanModel);
+	void updateView( Hangman hangmanModel);
 }

@@ -1,5 +1,3 @@
-import cs102.Hangman;
-
 import java.util.Scanner;
 
 /**
@@ -18,25 +16,38 @@ public class ConsoleHangman
     	System.out.println( "Start of ConsoleHangman\n");
 
 		// VARIABLES
-		Hangman		hangman;
+		HangmanModel		hangman1, hangman2;
+		ConsoleHangmanView		hangmanView1,hangmanView2;
 
 		// PROGRAM CODE
-		hangman = new Hangman( new BasicSetup() );
+		hangman1 = new HangmanModel( new BasicSetup() );
+		hangman2 = new HangmanModel( new BasicSetup());
 
-		String input;
+		hangmanView1 = new ConsoleHangmanView();
+		hangmanView2 = new ConsoleHangmanView();
 
-		while(!hangman.isGameOver())
+		hangman1.addView(hangmanView1);
+		hangman2.addView(hangmanView2);
+
+		String input1, input2;
+		hangmanView1.updateView(hangman1);
+		hangmanView2.updateView(hangman2);
+
+		System.out.println();
+		while(!hangman1.isGameOver())
 		{
-			System.out.println("Secret word is: " + hangman.getKnownSoFar() + "\nUsed Letters: " + hangman.getUsedLetters());
-			System.out.println("Remaining number of tries: " + (hangman.getMaxAllowedIncorrectTries()-hangman.getNumOfIncorrectTries()));
-			System.out.print("Try new letter: ");
-			input = scan.next();
-			hangman.tryThis(input.charAt(0));
-			System.out.println("\n");
+			System.out.print("Try new letter for first game: ");
+			input1 = scan.next();
+			hangman1.tryThis(input1.charAt(0));
+			System.out.println();
+			System.out.print("Try new letter for second game: ");
+			input2 = scan.next();
+			hangman2.tryThis(input2.charAt(0));
+			System.out.println();
 		}
 
-		if(!hangman.hasLost())
-			System.out.println("\n\nCongratulations! You Have Won!");
+		if(!hangman1.hasLost())
+			System.out.println("\nCongratulations! You Have Won!");
 		else
 			System.out.println("You have lost!");
 
