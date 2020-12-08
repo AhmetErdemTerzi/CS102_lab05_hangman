@@ -31,7 +31,6 @@ public class ConsoleHangman
 		String input1;
 		hangmanView1.updateView(hangman1);
 
-
 		System.out.println();
 		while(!hangman1.isGameOver())
 		{
